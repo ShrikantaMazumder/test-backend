@@ -20,8 +20,11 @@ Route.get('/', 'HomeController.index')
 
 
 Route.group(() => {
+  // auth routes
   Route.post('register', 'AuthController.register'),
   Route.post('login', 'AuthController.login'),
+
+  // find user route
   Route.get('user/:userId', 'UserController.getUserById').middleware('auth')
 
 }).prefix('/api/v1')
